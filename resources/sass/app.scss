@@ -1,0 +1,42 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// product
+.line_height13 {
+    line-height: 1.3;
+}
+.text_decoration_line_through{
+    text-decoration: line-through
+}
+
+// GetCart.vue
+.img_thumb_nail {
+    min-width: 100px; min-height: 100px;
+}
+.grand_total_box {
+    border: 1px solid white; width: 100%; min-height: 352px; position: sticky; top: 168px;
+}
+.order_now {
+    border: 1px solide white;
+}
+// OrderDetails.vue
+.left_side_menu {
+    position: sticky; top: 80px;
+}
+// for spiner
+.my_loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(/files/loader.gif) 50% 50% no-repeat #000;
+    opacity: .2;
+}
