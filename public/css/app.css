@@ -10947,3 +10947,10 @@ a.text-dark:focus {
   opacity: 0.2;
 }
 
+.show_scroll_bar_admin_user {
+  border: 1px solid blue;
+  width: 100%;
+  height: 400px;
+  overflow-y: scroll;
+}
+

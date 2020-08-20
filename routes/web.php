@@ -36,3 +36,7 @@ Route::post('/admin/getCategoryCbyId', 'Admin\AdminController@getCategoryCbyId')
 Route::get('/admin/product/showCarouselOne', 'Admin\ProductController@showCarouselOne')->name('admin.product.showCarouselOne')->middleware('auth','can:isAdmin');
 Route::post('/admin/product/getCarouselOne', 'Admin\ProductController@getCarouselOne')->name('admin.product.getCarouselOne')->middleware('auth','can:isAdmin');
 Route::post('/admin/product/editCarouselOne', 'Admin\ProductController@editCarouselOne')->name('admin.product.editCarouselOne')->middleware('auth','can:isAdmin');
+// admin/user
+Route::get('/user-index', 'Admin\UserController@index')->name('admin.user.index')->middleware('auth','can:isAdmin');
+Route::get('/get-users', 'Admin\UserController@getUsers')->middleware('auth','can:isAdmin');
+Route::post('/edit-user', 'Admin\UserController@editUser')->middleware('auth','can:isAdmin');

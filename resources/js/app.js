@@ -30,6 +30,7 @@ Vue.filter('myDate',function(created){ //////////////
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('show-category', require('./components/admin/category/ShowCategory.vue').default);
 Vue.component('show-carouselone', require('./components/admin/product/ShowCarouselone.vue').default);
+Vue.component('user-index', require('./components/admin/user/UserIndex.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

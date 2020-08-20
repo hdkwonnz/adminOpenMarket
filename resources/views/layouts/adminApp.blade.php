@@ -42,7 +42,7 @@
                     @can('isAdmin')
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item">
-                        <a href="" class="nav-link text-dark" href="#">PERMISSIONS</a>
+                        <a href="{{ route('admin.user.index') }}" class="nav-link text-dark" href="#">PERMISSIONS</a>
                       </li>
                       <li class="nav-item">
                         <a href="{{ route('admin.category.showCategoryForm') }}" class="nav-link text-dark" href="#">CATEGORIES</a>
@@ -105,7 +105,6 @@
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('myJs/layout/app.js') }}"></script>
 
     @yield('extra-js')
 

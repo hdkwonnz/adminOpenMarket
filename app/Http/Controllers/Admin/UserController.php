@@ -15,12 +15,14 @@ class UserController extends Controller
      */
     public function index()
     {
-       return view('user.index');
+       return view('admin.user.index');
     }
 
     public function getUsers()
     {
-        $users = User::orderBy('updated_at','desc')
+        $users = User:: where('role','=','')
+                    ->orWhere('role','=','seller')
+                    ->orderBy('updated_at','desc')
                     ->get();
 
         return response()->json([
@@ -36,31 +38,29 @@ class UserController extends Controller
         $request->validate([
             'userId' => 'required|numeric',
             'userRole' => 'required',
-            'isChecked' => 'required',
+            // 'isChecked' => 'required',
             // 'verifiedAt' => 'required',
         ]);
 
         $user = User::Find($request->userId);
-        if ($user->role == 'admin'){
+        if ($user->role == 'user'){
             return response()->json([
-                'modalError' => 'admin cannot change by yourself.',
+                'modalError' => 'user role cannot be changed to seller.',
             ]);
         }
 
-        if ($request->userRole == 'admin'){
+        if (($request->userRole == 'seller') || ($request->userRole == 'clearRole')){
+            // continue
+        }else{
             return response()->json([
-                'modalError' => 'admin already exists.',
+                'modalError' => 'Input value Wrong.',
             ]);
         }
 
-        $user->role = $request->userRole;
-
-        if ($request->verifiedAt){
-            $user->email_verified_at = $request->verifiedAt;
-        }
-
-        if ($request->isChecked == 'yes'){
-            $user->email_verified_at = null;
+        if ($request->userRole == 'clearRole'){
+            $user->role = '';
+        }elseif ($request->userRole == 'seller'){
+            $user->role = $request->userRole;
         }
 
         $user->save();
