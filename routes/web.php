@@ -26,6 +26,8 @@ Route::get('showVerificationMsg','HomeController@showVerificationMsg')->middlewa
 // admin/admin
 Route::get('/', 'Admin\AdminController@index')->middleware('auth','can:isAdmin');
 Route::get('/admin', 'Admin\AdminController@index')->name('admin.admin.index')->middleware('auth','can:isAdmin');
+Route::get('/admin/showDailyOrderSum', 'Admin\AdminController@showDailyOrderSum')->name('admin.showDailyOrderSum')->middleware('auth','can:isAdmin');
+Route::post('/admin/getDailyOrderSum', 'Admin\AdminController@getDailyOrderSum')->name('admin.getDailyOrderSum')->middleware('auth','can:isAdmin');
 // admin/category
 Route::get('/admin/category', 'Admin\AdminController@showCategoryForm')->name('admin.category.showCategoryForm')->middleware('auth','can:isAdmin');
 Route::post('/admin/getAllcategories', 'Admin\AdminController@getAllcategories')->name('admin.category.getAllcategories')->middleware('auth','can:isAdmin');

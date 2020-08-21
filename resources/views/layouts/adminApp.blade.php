@@ -51,7 +51,10 @@
                         <a href="{{ route('admin.product.showCarouselOne') }}" class="nav-link text-dark" href="#">CAROUSELS</a>
                       </li>
                       <li class="nav-item">
-                        <a href="" class="nav-link text-dark" href="#">NOTICES</a>
+                        <a href="{{ route('admin.showDailyOrderSum') }}" class="nav-link text-dark">DAILY SUM</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link text-dark">NOTICES</a>
                       </li>
                     </ul>
                     @endcan

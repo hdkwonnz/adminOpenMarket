@@ -7,12 +7,38 @@ use App\Categoryb;
 use App\Categoryc;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use DB;
+use Order;
 
 class AdminController extends Controller
 {
     public function index()
     {
         return view('admin/admin/index');
+    }
+
+    public function showDailyOrderSum()
+    {
+        return view('admin/admin/showDailyOrderSum');
+    }
+
+    public function getDailyOrderSum(Request $request)
+    {
+        $sixDaysAgo = date("Y-m-d", strtotime("-60 days")); ////need to change
+        $toDate = date('Y-m-d');
+
+        // https://stackoverflow.com/questions/30801873/laravel-group-by-and-sum-total-value-of-other-column
+        $dailySums = DB::table('orders')
+            ->whereDate('created_at', '>=', $sixDaysAgo)
+            ->whereDate('created_at', '<=', $toDate)
+            ->select(DB::raw('DATE(created_at) as daily'), DB::raw('sum(total_amount) as total'))
+            ->groupBy(DB::raw('DATE(created_at)'))
+            ->orderBy('daily','desc')
+            ->get();
+
+            return response()->json([
+                'dailySums' => $dailySums,
+            ]);
     }
 
     public function showCategoryForm()

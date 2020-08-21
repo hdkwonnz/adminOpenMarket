@@ -8,6 +8,10 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+// https://www.npmjs.com/package/vue-numeral-filter
+import vueNumeralFilterInstaller from 'vue-numeral-filter';
+Vue.use(vueNumeralFilterInstaller, { locale: 'en-au' });
+
 // https://www.youtube.com/watch?v=bV9YsIi-FUU&list=PLB4AdipoHpxaHDLIaMdtro1eXnQtl_UvE&index=16
 // https://momentjs.com/
 import moment from 'moment';////
@@ -31,6 +35,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('show-category', require('./components/admin/category/ShowCategory.vue').default);
 Vue.component('show-carouselone', require('./components/admin/product/ShowCarouselone.vue').default);
 Vue.component('user-index', require('./components/admin/user/UserIndex.vue').default);
+Vue.component('daily-sum', require('./components/admin/admin/DailySum.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
