@@ -56,6 +56,9 @@
                       <li class="nav-item">
                         <a href="#" class="nav-link text-dark">NOTICES</a>
                       </li>
+                      <li class="nav-item">
+                        <a href="{{ route('logs') }}" target="_blank" class="nav-link text-dark">LOGS</a>
+                      </li>
                     </ul>
                     @endcan
 

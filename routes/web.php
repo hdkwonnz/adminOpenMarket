@@ -42,3 +42,18 @@ Route::post('/admin/product/editCarouselOne', 'Admin\ProductController@editCarou
 Route::get('/user-index', 'Admin\UserController@index')->name('admin.user.index')->middleware('auth','can:isAdmin');
 Route::get('/get-users', 'Admin\UserController@getUsers')->middleware('auth','can:isAdmin');
 Route::post('/edit-user', 'Admin\UserController@editUser')->middleware('auth','can:isAdmin');
+// admin/log
+Route::get('/logs','Admin\LogController@show')->name('logs')->middleware('auth','can:isAdmin');
+
+// Route::domain('{account}.openmarket.test')->group(function () {
+//     Route::get('/logs','LogController@show')->name('logs');
+// });
+
+// Route::group(
+//     [
+//         'domain' => 'openmarket.test'
+//     ],
+//     function () {
+//         Route::get('/logs','LogController@show')->name('logs');
+//     }
+// );
