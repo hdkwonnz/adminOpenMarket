@@ -20,12 +20,13 @@ class LogController extends Controller
         return Redirect::to($url);
 
 
-        // $date = new Carbon($request->get('date',today()));
+        // $selectedDate = new Carbon($request->get('selectedDate',today()));
 
-        // ////old version of laravel below => do not delete...
-        // // $filePath = storage_path("logs/laravel-{$date->format('Y-m-d')}.log");
+        // $filePath = storage_path("logs/laravel-{$selectedDate->format('Y-m-d')}.log");
 
-        // $filePath = storage_path("logs/laravel.log");
+        ////for one log file
+        // // $filePath = storage_path("logs/laravel.log");
+
         // $data = [];
 
         // if (File::exists($filePath)){
@@ -37,6 +38,6 @@ class LogController extends Controller
         // }
 
         // //return $data;
-        // return view('admin.logs.logs', compact('date','data'));
+        // return view('admin.logs.logs', compact('selectedDate','data'));
     }
 }
