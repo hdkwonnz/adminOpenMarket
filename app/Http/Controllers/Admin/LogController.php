@@ -16,10 +16,14 @@ class LogController extends Controller
     {
         //return $request->all();
 
-        $url = 'http://openmarket.test/showErrorLogsForAdmin';
+        ////below for local testing(hard coding) example...
+        // $url = 'http://openmarket.test/showErrorLogsForAdmin';
+        // return Redirect::to($url);
+
+        $url = env('APP_URL_MAIN').'/showErrorLogsForAdmin';
         return Redirect::to($url);
 
-
+        ////below for admin domain's log file
         // $selectedDate = new Carbon($request->get('selectedDate',today()));
 
         // $filePath = storage_path("logs/laravel-{$selectedDate->format('Y-m-d')}.log");
